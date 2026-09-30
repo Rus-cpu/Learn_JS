@@ -71,3 +71,14 @@ greet("Rusan", () => {
 setTimeout(() => {
     console.log("Hello!");
 }, 2000);
+
+//Higher Order Function
+function operate(a, b, operation) {
+    return operation(a,b);
+}
+
+const result = operate(5, 10, (a, b) => a + b);
+
+console.log(result);
+//some array methods used in this are map filter and reduce
+
