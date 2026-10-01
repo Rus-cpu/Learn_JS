@@ -99,4 +99,19 @@ var z = x(); //even though the function x is no longer present
 console.log(z); // it still remembers its parents lexical environment
 z(); 
 
+//what happen if you add another parent function 
+function e() {
+    var p = 100;
+    function f() {
+        var q = 200;
+        function g() {//g form a closure along with scope of f and e
+            console.log(p, q);
+        }
+        return g;
+    }
+    return f();
+}
 
+var r = e();
+console.log(r);
+r();
