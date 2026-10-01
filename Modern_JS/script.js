@@ -70,7 +70,7 @@ greet("Rusan", () => {
 
 setTimeout(() => {
     console.log("Hello!");
-}, 2000);
+}, 1000);
 
 //Higher Order Function
 function operate(a, b, operation) {
@@ -81,4 +81,22 @@ const result = operate(5, 10, (a, b) => a + b);
 
 console.log(result);
 //some array methods used in this are map filter and reduce
+
+//Closures - It is a combination of a function and a reference to the lexical environment of the parents.
+//in other words it gives you the access to the outer function scope from the inner function
+
+//example of a closure
+
+function x() {
+    var a = 10;
+    return function y() {
+        console.log(a);
+    }
+ //here a function with its lexical environment is returned as a bundle know as closure
+}
+
+var z = x(); //even though the function x is no longer present
+console.log(z); // it still remembers its parents lexical environment
+z(); 
+
 
