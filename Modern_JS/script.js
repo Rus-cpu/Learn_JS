@@ -115,3 +115,43 @@ function e() {
 var r = e();
 console.log(r);
 r();
+
+//closure with setTimeout function
+
+function outer() {
+    var i = 20;
+    setTimeout(function (){
+        console.log(i);
+    },1000);
+    console.log("Namaste javascript");
+}
+
+outer();
+ 
+
+function cl1() {
+    for(var i1 = 1; i1 <= 5; i1++)
+    {
+        setTimeout(function () {
+            console.log(i1);
+        }, i1 * 1000);
+    }
+}
+
+cl1();
+//by doing this you will only print 6, 5 times i1 is referencing to the same memory location everytime
+//you can easily solve this by using let
+
+//but in case if you have to use var you can form closure with another function so that every time the value is iterated it creates the new copy of the variable
+
+function cl2() {
+    for(var i2 = 1; i2 <= 5; i2++){
+        function cl3 (i2) {
+            setTimeout(function () {
+            console.log(i2);
+            }, 5000 + i2 * 1000);
+        }
+    cl3(i2);
+    }
+}
+cl2();
