@@ -37,3 +37,6 @@ function cl() {
 cl();
 
 //now this function xyz forms a closure with function cl this means that when a button is clicked the function xyz is triggerd that means it is calledbacks but it still remembers the variables and function present in the lexical environment of the parent function ie it forms closures with the parent.
+
+//garbage collection and removeEventListeners
+ 
