@@ -25,3 +25,18 @@ document.getElementById("btn").addEventListener("click", function cb() {
 });
 
 console.log("End");
+
+//event loop for fetch 
+console.log("START");
+
+setTimeout(function cbT() {
+    console.log("CB setTimeout");
+},5000);
+
+fetch("https://api.netflix.com").then(function cbF() {
+    console.log("cb Netflix");
+});
+
+console.log("END");
+
+//here cb function of promises and mutation observer are stored in microtask queue so they get pushed into js engine through callback first after that the cb function of setTimout is pushed in JS engine through callback queue
