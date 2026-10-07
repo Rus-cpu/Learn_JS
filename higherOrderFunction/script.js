@@ -77,3 +77,17 @@ console.log(radius.map(circumference));
 console.log(radius.map(diameter));
 
 //this is how map method does the same work
+//now creating out similar type of method
+
+Array.prototype.calculate = function(arr, logic) {
+    output = [];
+    for(let i = 0; i < arr.length; i++)
+    {
+        output.push(logic(arr[i]));
+    }
+    return output;
+}
+
+console.log(radius.calculate(radius, area));
+
+//this is how you can create similar type of method such as map
