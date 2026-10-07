@@ -79,15 +79,30 @@ console.log(radius.map(diameter));
 //this is how map method does the same work
 //now creating out similar type of method
 
-Array.prototype.calculate = function(arr, logic) {
+// Array.prototype.calculate = function(arr, logic) {
+//     output = [];
+//     for(let i = 0; i < arr.length; i++)
+//     {
+//         output.push(logic(arr[i]));
+//     }
+//     return output;
+// }
+
+// console.log(radius.calculate(radius, area));
+
+//this is how you can create similar type of method such as map
+
+// if you want to create a similar one by only passing one argument that is logic then
+
+Array.prototype.calculate = function(logic) {
     output = [];
-    for(let i = 0; i < arr.length; i++)
+    for(let i = 0; i < this.length; i++)
     {
-        output.push(logic(arr[i]));
+        output.push(logic(this[i]));
     }
     return output;
 }
 
-console.log(radius.calculate(radius, area));
+console.log(radius.calculate(area));
 
-//this is how you can create similar type of method such as map
+//you can obtain that by using this keyword
