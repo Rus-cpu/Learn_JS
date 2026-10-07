@@ -63,7 +63,7 @@ const calculate = function (radius, logic) {
     for(let i = 0; i < radius.length; i++) {
         output.push(logic(radius[i]));
     }
-    console.log(output);
+    return output;
 }
 
 console.log(calculate(radius, area));
