@@ -58,14 +58,22 @@ const diameter = function(radius) {
     return radius * radius;
 }
 
-const calculate = function (radius, logic) {
-    output = [];
-    for(let i = 0; i < radius.length; i++) {
-        output.push(logic(radius[i]));
-    }
-    return output;
-}
+// const calculate = function (radius, logic) {
+//     output = [];
+//     for(let i = 0; i < radius.length; i++) {
+//         output.push(logic(radius[i]));
+//     }
+//     return output;
+// }
 
-console.log(calculate(radius, area));
-console.log(calculate(radius, circumference));
-console.log(calculate(radius, diameter));
+// console.log(calculate(radius, area));
+// console.log(calculate(radius, circumference));
+// console.log(calculate(radius, diameter));
+
+//using array function for the same purpose
+
+console.log(radius.map(area));
+console.log(radius.map(circumference));
+console.log(radius.map(diameter));
+
+//this is how map method does the same work
