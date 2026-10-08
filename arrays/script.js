@@ -58,3 +58,21 @@ numbers1.forEach((num, index) => console.log(index, num));
 
 users.forEach(user => console.log(`Hello ${user.name} you are ${user.age} years old`));
 
+const arr = [5, 1, 2, 3, 6];
+
+const output = arr.map(x => x.toString(2));
+
+console.log(output);
+
+const output1 = arr.reduce((max, curr) => {
+    if (curr > max) {
+        max = curr;
+    }
+    return max;
+}, 0);
+
+console.log(output1);
+
+const output2 = arr.filter(x => x > 4);
+
+console.log(output2);
