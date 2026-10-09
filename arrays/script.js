@@ -1,6 +1,7 @@
 
 // // important methods to learn in Array
 
+
 // //Map Method
 
 // const numbers = [1, 2, 3, 4, 5, 6];
@@ -111,3 +112,13 @@ const less = users.filter(data => data.age < 20).map(data => `${data.firstName}`
 console.log(less);
 
 //this is how filter is useful
+//how you can get the same result using reduce as well
+
+const output10 = users.reduce((acc, curr) => {
+   if(curr.age < 20) {
+      acc.push(curr.firstName);
+   }
+   return acc;
+}, []);
+
+console.log(output10);
