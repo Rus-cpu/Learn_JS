@@ -90,3 +90,16 @@ const fullName = users.map(data => `${data.firstName} ${data.lastName}`);
 
 console.log(fullName);
 
+const age = users.reduce((acc, curr) => {
+ if(acc[curr.age]) {
+    acc[curr.age] = ++acc[curr.age];
+ }
+ else {
+    acc[curr.age] = 1;
+ }
+ return acc;
+}, {});
+
+console.log(age);
+
+//this is how you can find no of people with same age
