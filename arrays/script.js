@@ -103,3 +103,11 @@ const age = users.reduce((acc, curr) => {
 console.log(age);
 
 //this is how you can find no of people with same age
+
+//wap to find first name of people whose age is less than 20
+
+const less = users.filter(data => data.age < 20).map(data => `${data.firstName}`);
+
+console.log(less);
+
+//this is how filter is useful
