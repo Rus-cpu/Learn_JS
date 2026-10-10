@@ -32,13 +32,19 @@ createOrder(cart, function(orderId) {
 });
 
 
+// createOrder(cart)
+//     .then(function(orderId) {
+//         return proceedToPayment(orderId);
+//     })
+//     .then(function (paymentInfo) {
+//         return showOrderSummary(paymentInfo);
+//     })
+//     .then(function(summaryInfo) {
+//         return updateWalletBalance(summaryInfo);
+//     });
+
+    //by using arrow function
 createOrder(cart)
-    .then(function(orderId) {
-        return proceedToPayment(orderId);
-    })
-    .then(function (paymentInfo) {
-        return showOrderSummary(paymentInfo);
-    })
-    .then(function(summaryInfo) {
-        return updateWalletBalance(summaryInfo);
-    });
+    .then(orderId => proceedToPayment(orderId))
+    .then(paymentInfo => showOrderSummary(paymentInfo))
+    .then(summaryInfo => updateWalletBalance(summaryInfo));
