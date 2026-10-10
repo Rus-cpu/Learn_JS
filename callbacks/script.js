@@ -52,7 +52,9 @@ api.creteOrder(cart, function () {
   });
 });
 
+//Callback hell: when you are passing call back function into other call back function creating a lot of nested callback function which makes your code unmaintainable and redable which is known as callback hell and it is also refered to as pyramid of DOOM
 
+//Inversion of control: if you pass your callback function into other function hoping that the other function will do the work and call our function as intended then this leads to your piece of code depending on other code so you wont have control over your code.
 
 
 
