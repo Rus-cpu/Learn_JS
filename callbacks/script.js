@@ -40,3 +40,22 @@ cl();
 
 //garbage collection and removeEventListeners
  
+//advanced level of javascript
+
+const cart = ["shoes", "pants", "kurta"];
+
+api.creteOrder(cart, function () {
+  api.proceedtoPayment(function () {
+    api.showOrderSummary(function () {
+      api.updateWallet();
+    });
+  });
+});
+
+
+
+
+
+
+
+
