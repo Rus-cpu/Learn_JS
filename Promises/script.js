@@ -20,3 +20,25 @@ console.log(user);
 user.then(function(data) {
     console.log(data);
 })
+
+const cart = ["shoes", "shirt", "kurtha"];
+
+createOrder(cart, function(orderId) {
+    proceedToPayment(orderId, function (paymentInfo) {
+        showOrderSummary(paymentInfo, function() {
+            updateWalletBalance(summaryInfo);
+        })
+    })
+});
+
+
+createOrder(cart)
+    .then(function(orderId) {
+        return proceedToPayment(orderId);
+    })
+    .then(function (paymentInfo) {
+        return showOrderSummary(paymentInfo);
+    })
+    .then(function(summaryInfo) {
+        return updateWalletBalance(summaryInfo);
+    });
