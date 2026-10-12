@@ -52,6 +52,9 @@ createOrder(cart)
   console.log(orderId);
   return orderId;
 })
+.catch(function(err) {
+  console.log(err.message);
+})
 .then(function (orderId) {
   return proceedToPayment(orderId);
 })
@@ -60,6 +63,9 @@ createOrder(cart)
 })
 .catch(function(err) {
   console.log(err.message);
+})
+.then(function (orderId) {
+  console.log("no matter what this will definately be called.");
 });
 
 function createOrder(cart) {
@@ -89,5 +95,5 @@ function proceedToPayment(orderId) {
 }
 
 function validateOrder(cart) {
-  return true;
+  return false;
 }
