@@ -48,10 +48,12 @@
 const cart = ["shoes", "shirts", "pants"];
 
 const promise = createOrder(cart);
-console.log(promise);
 
 promise.then(function (orderId) {
   console.log(orderId);
+})
+.catch(function(err) {
+  console.log(err.message);
 });
 
 function createOrder(cart) {
@@ -60,7 +62,7 @@ function createOrder(cart) {
   //validate a promise
   const pr = new Promise(function (resolve, reject) {
     if (!validateOrder(cart)) {
-      const err = new err("Cart is not valid");
+      const err = new Error("Cart is not valid");
       reject(err);
     }
 
@@ -75,5 +77,5 @@ function createOrder(cart) {
 }
 
 function validateOrder(cart) {
-  return true;
+  return false;
 }
