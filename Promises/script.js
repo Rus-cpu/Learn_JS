@@ -52,20 +52,22 @@ createOrder(cart)
   console.log(orderId);
   return orderId;
 })
-.catch(function(err) {
-  console.log(err.message);
-})
 .then(function (orderId) {
   return proceedToPayment(orderId);
 })
 .then(function(paymentInfo) {
   console.log(paymentInfo);
+  return showOrderSummary(paymentInfo);
+})
+.then(function(summary) {
+  console.log(summary);
+  return updateWallet(summary);
+})
+.then(function (summary) {
+  console.log(summary);
 })
 .catch(function(err) {
   console.log(err.message);
-})
-.then(function (orderId) {
-  console.log("no matter what this will definately be called.");
 });
 
 function createOrder(cart) {
@@ -82,7 +84,7 @@ function createOrder(cart) {
     if (orderId) {
       setTimeout(function () {
         resolve(orderId);
-      }, 5000);
+      }, 1000);
     }
   });
   return pr;
@@ -90,10 +92,28 @@ function createOrder(cart) {
 
 function proceedToPayment(orderId) {
   return new Promise(function(resolve, reject) {
-    resolve("Payment Successful");
+    setTimeout(function () {
+      resolve("This is the payment Info");
+    }, 1000);
+  })
+}
+
+function showOrderSummary(paymentInfo) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function () {
+      resolve("This is the order summary");
+    }, 1000);
+  })
+}
+
+function updateWallet(summary) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function () {
+      resolve("Wallet is updated");
+    }, 1000);
   })
 }
 
 function validateOrder(cart) {
-  return false;
+  return true;
 }
