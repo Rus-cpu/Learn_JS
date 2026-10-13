@@ -48,3 +48,19 @@ Promise.allSettled([asp1, asp2, asp3]).then((res) => {
 });
 
 //this is the safest way  
+
+//for race promise api
+const rp1 = new Promise(function(resolve, reject) {
+  setTimeout(() => resolve("p1 success"), 3000);
+});
+const rp2 = new Promise(function(resolve, reject) {
+  setTimeout(() => reject("p2 failed"), 1000);
+});
+const rp3 = new Promise(function(resolve, reject) {
+  setTimeout(() => resolve("p3 success"), 2000);
+});
+
+
+Promise.race([rp1, rp2, rp3]).then(res => {console.log(res)}).catch((err) => console.error(err));
+
+//So race condition displays the first promise to be settled whether it is resloved or rejected
