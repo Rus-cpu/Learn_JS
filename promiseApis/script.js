@@ -64,3 +64,17 @@ const rp3 = new Promise(function(resolve, reject) {
 Promise.race([rp1, rp2, rp3]).then(res => {console.log(res)}).catch((err) => console.error(err));
 
 //So race condition displays the first promise to be settled whether it is resloved or rejected
+
+//Promise.any
+const ap1 = new Promise(function(resolve, reject) {
+  setTimeout(() => resolve("p1 success"), 3000);
+});
+const ap2 = new Promise(function(resolve, reject) {
+  setTimeout(() => reject("p2 fail"), 2000);
+});
+const ap3 = new Promise(function(resolve, reject) {
+  setTimeout(() => reject("p3 fail"), 1000);
+});
+Promise.any([ap1, ap2, ap3]).then(res => {console.log(res)}).catch((err) => console.error(err));
+
+//in any the first resolved settled promised is the result
