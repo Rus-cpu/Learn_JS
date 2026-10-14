@@ -78,3 +78,23 @@ const ap3 = new Promise(function(resolve, reject) {
 Promise.any([ap1, ap2, ap3]).then(res => {console.log(res)}).catch((err) => console.error(err));
 
 //in any the first resolved settled promised is the result
+//what will happen if all the promises are rejected
+
+const fap1 = new Promise(function(resolve, reject) {
+  setTimeout(() => reject("p1 fail"), 3000);
+});
+const fap2 = new Promise(function(resolve, reject) {
+  setTimeout(() => reject("p2 fail"), 2000);
+});
+const fap3 = new Promise(function(resolve, reject) {
+  setTimeout(() => reject("p3 fail"), 1000);
+});
+Promise.any([fap1, fap2, fap3])
+.then(res => 
+  {
+    console.log(res)
+  })
+  .catch((err) => {
+ console.error(err);
+ console.log(err.errors);
+});   
