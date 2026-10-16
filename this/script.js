@@ -72,3 +72,7 @@ const obj1 = {
 
 obj1.x();
 
+//this inside DOM element => reference to the html elements
+
+//this inside class, constructor and
+
