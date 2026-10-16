@@ -57,3 +57,18 @@ const printMyName = printName.bind(student2, "kirtipur", "kathmandu");
 
 console.log(printMyName);
 printMyName();
+
+
+//this keyword inside arrwo function
+const obj1 = {
+    a: 10,
+    x: function () {
+        const y = () => {
+        console.log(this);
+        }
+        y();
+    }
+};
+
+obj1.x();
+
